@@ -27,10 +27,18 @@
 
     app.post('/categories', async (req: Request, res: Response) => {
         const { name, email, password, role, active } = req.body;
-        const insertQuery = "INSERT INTO users (name, email, password, role, active) VALUES (?, ?, ?, ?, ?)";
+        const insertQuery = 'INSERT INTO users (name, email, password, role, active) VALUES (?, ?, ?, ?, ?)';
         await connection.query(insertQuery, [name, email, password, role, active]);
         res.redirect('/categories');
+        
+        if (!name || !email || !password || !role || (active !== '0' && active !== '1')) {
+            return res.status(400).send("Todos os campos são obrigatórios.");
+        }
+    
+    
     });
+ 
+  
 
     app.post('/categories/:id/delete', async (req: Request, res: Response) => {
         const id = req.params.id;

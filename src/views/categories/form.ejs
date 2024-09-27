@@ -22,13 +22,22 @@
                 <label for="password" class="form-label">Senha:</label>
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
+            
+            <div class="mb-3">
+                <label for="password1" class="form-label">Confirmação de Senha:</label>
+                <input type="password" id="password1" name="password1" class="form-control" required>
+            </div>
+          
             <div class="mb-3">
                 <label for="role" class="form-label">Papel:</label>
-                <input type="text" id="role" name="role" class="form-control" required>
+                <select id="role" name="role" class="form-select" required>
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuário</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="active" class="form-label">Ativo:</label>
-                <select id="active" name="active" class="form-select" required>
+                <select id="active" name="active" class="form-label" required>
                     <option value="1">Sim</option>
                     <option value="0">Não</option>
                 </select>

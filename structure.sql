@@ -50,7 +50,7 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','author','reader') NOT NULL,
+  `role` enum('admin','user') NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -58,8 +58,5 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `active`, `created_at`) VALUES
-(7, 'a', 'a@gmail.com', '123', 'admin', 1, '2024-09-25 16:47:04'),
-(8, 'b', 'b@gmail.com', '123', 'admin', 1, '2024-09-25 17:01:45'),
-(9, 'c', 'c@gmail.com', '123', 'admin', 1, '2024-09-25 17:06:46'),
-(10, 'f', 'f@gmail.com', '123', 'admin', 1, '2024-09-26 21:48:01')
+
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `email` = VALUES(`email`), `password` = VALUES(`password`), `role` = VALUES(`role`), `active` = VALUES(`active`), `created_at` = VALUES(`created_at`);

@@ -16,6 +16,7 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Papel</th>
+                    <th>Data</th>
                     <th>Ativo</th>
                     <th>Ações</th>
                 </tr>
@@ -27,15 +28,14 @@
                         <td><%= user.name %></td>
                         <td><%= user.email %></td>
                         <td><%= user.role %></td>
+                        <td><%= user.created_at %></td>
                         <td><%= user.active ? 'Sim' : 'Não' %></td>
                         <td>
                             <form action="/categories/<%= user.id %>/delete" method="post">
                                 <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                             </form>
                         </td>
-                        </td>
-                            <%= new Date(user.created_at).toLocaleDateString("pt-BR") %>                            
-                        </td>
+                     
                     </tr>
                 <% }) %>
             </tbody>
